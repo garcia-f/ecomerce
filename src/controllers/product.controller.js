@@ -17,7 +17,7 @@ class ProductController {
                     message: "No hay productos"
                 });
             }
-            res.status(200).json({ products });           // es send o json ??????????????
+            res.status(200).send({ products });          
         } catch (error) {
             console.error(error);
         }
@@ -34,7 +34,7 @@ class ProductController {
                     message: "No se encontro el producto"
                 });
             }
-            res.status(200).json({ product });
+            res.status(200).send({ product });
         } catch (error) {
             console.log(error);
         }
@@ -51,7 +51,7 @@ class ProductController {
                     message: "No se pudo crear el producto"
                 });
             }
-            res.status(200).json({ product });
+            res.status(200).send({ product });
         } catch (error) {
            console.log(error);
         }
@@ -69,9 +69,9 @@ class ProductController {
                     message: "No se pudo actualizar el producto"
                 });
             }
-            res.status(200).json({ product });
+            res.status(200).send({ product });
         } catch (err) {
-            return res.status(err.statusCode || 500).json({
+            return res.status(err.statusCode || 500).send({
                 message: err.message,
                 status: err.status
             })
@@ -89,10 +89,10 @@ class ProductController {
                     message: "No se pudo eliminar el producto"
                 });
             }
-            res.status(200).json({ product });
+            res.status(200).send({ product });
         } catch (err) {
             // como hace el profe
-            return res.status(err.statusCode || 500).json({
+            return res.status(err.statusCode || 500).send({
                 message: err.message,
                 status: err.status
             })
@@ -101,3 +101,4 @@ class ProductController {
 
 }
 
+export default new ProductController()

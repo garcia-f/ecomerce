@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
-const ProductModel = sequelize.define(
-    'products',
+const UserModel = sequelize.define(
+    'Users',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,18 +13,20 @@ const ProductModel = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
-        price: {
-            type: DataTypes.FLOAT,
+        email: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
-            type: DataTypes.TEXT
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        stock: {
-            type: DataTypes.INTEGER,
+        role: {
+            type: DataTypes.ENUM("client", "seller", "admin"),
+            defaultValue: "client",
             allowNull: false
         }
     }
 );
 
-export default ProductModel
+export default UserModel
