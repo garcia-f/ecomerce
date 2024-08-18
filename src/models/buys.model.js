@@ -11,14 +11,6 @@ const BuysModel = sequelize.define(
             autoIncrement: true,
             allowNull: false
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: UserModel,
-                key: 'id'
-            }
-        },
         total: {
             type: DataTypes.FLOAT,
             allowNull: false

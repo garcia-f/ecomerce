@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
 const UserModel = sequelize.define(
-    'Users',
+    'users',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -22,8 +22,8 @@ const UserModel = sequelize.define(
             allowNull: false
         },
         role: {
-            type: DataTypes.ENUM("client", "seller", "admin"),
-            defaultValue: "client",
+            type: DataTypes.ENUM("cliente", "vendedor", "admin"),
+            defaultValue: "cliente",
             allowNull: false
         }
     }
