@@ -2,35 +2,37 @@ import ProductModel from "../models/product.model.js";
 
 class ProductService {
 
-    constructor () {}
+    constructor () {
+        this.productModel = ProductModel;
+    }
 
     async getAllProducts() {
-        const products = await ProductModel.findAll();
+        const products = await this.productModel.findAll();
         return products;
     }
 
     async getProductById(id) {
-        const product = await ProductModel.findByPk(id);
+        const product = await this.productModel.findByPk(id);
         return product;
     }
 
     async getProductByName(name) {
-        const product = await ProductModel.findOne({ where: { name } });
+        const product = await this.productModel.findOne({ where: { name } });
         return product;
     }
 
     async createProduct(data) {
-        const product = await ProductModel.create(data);
+        const product = await this.productModel.create(data);
         return product;
     }
 
     async updateProduct(id, data) {
-        const product = await ProductModel.update(data, { where: { id } });
+        const product = await this.productModel.update(data, { where: { id } });
         return product;
     }
 
     async deleteProduct(id) {
-        const product = await ProductModel.destroy({ where: { id } });
+        const product = await this.productModel.destroy({ where: { id } });
         return product;
     }
 

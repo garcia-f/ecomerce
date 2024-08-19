@@ -1,12 +1,11 @@
-import dotenv from 'dotenv';
-dotenv.config(); 
-
 import Express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import env from "./enviroments/enviroments.js";
 import connectionDB from "./config/connection.js";
+
+import productRouter from "./routes/product.routes.js";
 
 class Server {
 
@@ -31,7 +30,7 @@ class Server {
     }
 
     routes() {
-        // las rutas
+        this.app.use('/product', productRouter);
     }
 
     listen() {

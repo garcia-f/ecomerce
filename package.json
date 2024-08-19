@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
+    "dev": "node --env-file .env.production --watch app.js",
     "start": "node --env-file .env.production app.js"
   },
   "keywords": [],
@@ -14,13 +14,11 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-validator": "^7.2.0",
     "helmet": "^7.1.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.11.0",
-    "nodemon": "^3.1.4",
     "sequelize": "^6.37.3"
   }
 }

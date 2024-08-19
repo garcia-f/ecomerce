@@ -10,7 +10,7 @@ class ProductController {
 
     async getAllProducts(req, res) {
         try {
-            const products = await this.productService.getAllProducts();
+            const products = await ProductService.getAllProducts();
             if(!products || products.length === 0) {
                 return res.status(404).send({
                     status: 404,
@@ -27,7 +27,7 @@ class ProductController {
     async getProductById(req, res) {
         try {
             const { id } = req.params;
-            const product = await this.productService.getProductById( id ); 
+            const product = await ProductService.getProductById( id ); 
             if(!product) {
                 return res.status(404).send({
                     status: 404,
@@ -43,8 +43,8 @@ class ProductController {
 
     async createProduct(req, res) {
         try {
-            const { id } = req.params;
-            const product = await this.productService.getProductById( id );
+            const data = req.body;
+            const product = await ProductService.createProduct(data);
             if(!product) {
                 return res.status(404).send({
                     status: 404,
@@ -62,7 +62,7 @@ class ProductController {
         try {
             const { id } = req.params;
             const data = req.body;
-            const product = await this.productService.updateProduct(id, data);
+            const product = await ProductService.updateProduct(id, data);
             if(!product) {
                 return res.status(404).send({
                     status: 404,
@@ -82,7 +82,7 @@ class ProductController {
     async deleteProduct(req, res) {
         try {
             const { id } = req.params;
-            const product = await this.productService.deleteProduct( id );
+            const product = await ProductService.deleteProduct( id );
             if(!product) {
                 return res.status(404).send({
                     status: 404,
